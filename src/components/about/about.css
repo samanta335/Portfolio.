@@ -1,0 +1,58 @@
+
+
+.info_data{
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.flex-info p{
+    padding: 0.6rem;
+}
+
+.about__title {
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-bold);
+}
+
+.about__subtitle {
+    font-size: var(--smaller-font-size);
+}
+
+
+.objective_p{
+    font-size: var(--normal-font-size);
+    font-weight: var(--font-medium);
+    width: 25rem;
+    margin-top:3rem;
+}
+
+/* BREAK POINTS */
+@media screen and (max-width: 992px) {  
+  
+
+
+   
+}
+
+@media screen and (max-width: 576px) {
+   
+    .info_data{
+        display: flex;
+        flex-direction: column;
+    }
+    .objective_p{
+       
+        width: 10rem;
+        margin-top:3rem;
+    }
+    
+}
+
+@media screen and (max-width: 350px) {
+    .info_data{
+        display: flex;
+        flex-direction: column;
+    }
+   
+}
