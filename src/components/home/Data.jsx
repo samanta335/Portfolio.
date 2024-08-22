@@ -21,7 +21,7 @@ const Data = () => {
           />
         </h3>
         <p className="home__description">
-            Web developer dedicated to design and creative solutions.
+            Web developer dedicated to design creative solutions.
         </p>
         <a download="" href={CV} className="cv_icon button button--flex">
                     Download Resume
