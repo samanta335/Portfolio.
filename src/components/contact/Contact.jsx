@@ -1,17 +1,32 @@
 import React, { useRef } from 'react';
 import "./contact.css";
-import { HiOutlineMail, HiOutlineArrowSmRight } from "react-icons/hi"
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import emailjs from '@emailjs/browser';
 import { FiFacebook, FiGithub, FiInstagram, FiLinkedin, FiMail, FiPhone } from 'react-icons/fi';
 
 const Contact = () => {
     const form = useRef();
-    
+    const notify = () => toast.success(" Successfully Send");
+
     const sendEmail = (e) => {
-        e.preventDefault();
-    
-        emailjs.sendForm('service_s53x8mc', 'template_fwq8n7v', form.current, 'cXginQ40keRVEt1YV')
-        e.target.reset();
+      e.preventDefault();
+
+      emailjs
+        .sendForm(
+          "service_7gtqeco",
+          "template_1rg8qda",
+          form.current,
+          "xvC4WUokit8berPL2"
+        )
+        .then(
+          (result) => {
+            console.log(result.text);
+          },
+          (error) => {
+            console.log(error.text);
+          }
+        );
     };
   
     return (
@@ -68,12 +83,12 @@ const Contact = () => {
                 <form ref={form} onSubmit={sendEmail} className="contact__form">
                     <div className="contact__form-div">
                         <label className="contact__form-tag">Name</label>
-                        <input type="text" name="name" className="contact__form-input" placeholder="Type your name" />
+                        <input type="text"   name="from_name" className="contact__form-input" placeholder="Type your name" />
                     </div>
 
                     <div className="contact__form-div">
                         <label className="contact__form-tag">Email</label>
-                        <input type="email" name="email" className="contact__form-input" placeholder="Type your email" />
+                        <input type="email" name="from_email" className="contact__form-input" placeholder="Type your email" />
                     </div>
                     <div className="contact__form-div">
                         <label className="contact__form-tag">Subject</label>
@@ -85,7 +100,7 @@ const Contact = () => {
                         <textarea name="project" cols="10" rows="10" className="contact__form-input" placeholder="Message"></textarea>
                     </div>
 
-                    <button href="#contact" className="button button--flex cv_icon">
+                    <button  onClick={notify} href="#contact" className="button button--flex cv_icon">
                         Send Message
                         <svg
                             class="button__icon"
@@ -108,6 +123,7 @@ const Contact = () => {
                 </form>
             </div>
         </div>
+        <ToastContainer/>
     </section>
   );
 }
